@@ -31,6 +31,7 @@ public class SellerInitializer {
             seller.setName(entry.getValue());
             
             sellers.add(seller);
+
         }
         
         sellerService.importSellers(sellers);
