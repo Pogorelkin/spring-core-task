@@ -1,6 +1,7 @@
 package org.shop;
 
 
+import org.shop.configuration.MainAppConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,6 +17,7 @@ public class ShopLauncher {
      */
     public static void main(String[] args) {
         //TODO: implement using Spring Framework ApplicationContext
-        ApplicationContext context = new AnnotationConfigApplicationContext()
+        ApplicationContext context = new AnnotationConfigApplicationContext(MainAppConfiguration.class);
+        
     }
 }
