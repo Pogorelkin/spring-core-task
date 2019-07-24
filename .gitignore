@@ -10,3 +10,7 @@
 .settings
 target/
 .springBeans
+
+shop/\.idea/
+
+*.iml
