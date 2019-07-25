@@ -3,9 +3,13 @@ package org.shop.configuration;
 import org.shop.*;
 import org.shop.api.ProductService;
 import org.shop.api.UserService;
+import org.shop.common.Sellers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @Import(ServiceBeansConfiguration.class)
@@ -26,9 +30,18 @@ public class DataInitializersBeansConfiguration {
         return new ProposalInitializer();
     }
 
+    public Map<Long, String> sellerNames(){
+        Map<Long,String> sellers = new HashMap<>();
+        sellers.put(0L, Sellers.AMAZON);
+        sellers.put(1L, Sellers.SAMSUNG);
+
+        return sellers;
+    }
+
+
     @Bean
     public SellerInitializer sellerInitializer(){
-        return new SellerInitializer();
+        return new SellerInitializer(sellerNames());
     }
 
     @Bean

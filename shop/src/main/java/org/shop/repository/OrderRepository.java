@@ -1,8 +1,8 @@
 package org.shop.repository;
 
-import java.util.List;
-
 import org.shop.data.Order;
+
+import java.util.List;
 
 /**
  * Provides repository for manipulating orders.
@@ -41,4 +41,6 @@ public interface OrderRepository {
      * @return the orders by user id
      */
     List<Order> getOrdersByUserId(Long userId);
+
+    void setSequence(long sequence);
 }

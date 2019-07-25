@@ -1,15 +1,17 @@
 package org.shop.api.impl;
 
-import java.util.List;
-
 import org.shop.api.ProductService;
 import org.shop.data.Product;
 import org.shop.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
 
+    @Autowired
     public ProductServiceImpl(ProductRepository repository) {
         super();
         this.repository = repository;
