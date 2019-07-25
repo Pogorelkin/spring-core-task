@@ -10,11 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("initialSequence.properties")
+@PropertySource("classpath:initialSequence.properties")
 public class RepositoryBeansConfigurations {
     @Bean
-    public UserRepositoryFactory userRepository() {
-        return new UserRepositoryFactory();
+    public UserRepository userRepository()
+    {   UserRepositoryFactory userRepositoryFactory = new UserRepositoryFactory();
+        return userRepositoryFactory.createUserRepository() ;
     }
 
     @Bean

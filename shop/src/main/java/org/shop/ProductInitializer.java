@@ -4,10 +4,12 @@ import org.shop.api.ProductService;
 import org.shop.common.Products;
 import org.shop.data.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * The Product Initializer util class.
  */
+@Component
 public final class ProductInitializer {
     
     /** The product service. */

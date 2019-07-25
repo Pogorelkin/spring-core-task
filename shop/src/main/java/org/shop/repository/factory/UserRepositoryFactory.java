@@ -1,11 +1,13 @@
 package org.shop.repository.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.shop.data.User;
 import org.shop.repository.UserRepository;
 import org.shop.repository.map.AbstractMapRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A factory for creating UserRepository objects.
@@ -15,6 +17,7 @@ import org.shop.repository.map.AbstractMapRepository;
  * @see UserRepository
  * @see User
  */
+@Component
 public final class UserRepositoryFactory {
     
     /**
@@ -30,6 +33,7 @@ public final class UserRepositoryFactory {
      * 
      * @author Dzmitry_Naskou
      */
+    @Repository
     private class UserMapRepository extends AbstractMapRepository<User> implements UserRepository {
 
         /* (non-Javadoc)

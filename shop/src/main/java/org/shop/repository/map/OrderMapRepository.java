@@ -1,16 +1,18 @@
 package org.shop.repository.map;
 
-import java.util.List;
-
 import org.apache.commons.collections.Predicate;
 import org.shop.data.Order;
 import org.shop.repository.OrderRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * The Class OrderMapRepository.
  * 
  * @author Dzmitry_Naskou
  */
+@Repository
 public class OrderMapRepository extends AbstractMapRepository<Order> implements OrderRepository {
 
     public void setSequence(long sequence) {
