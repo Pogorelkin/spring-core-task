@@ -1,10 +1,10 @@
 package org.shop.configuration;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-@SpringBootApplication
-@Import({DataInitializersBeansConfiguration.class, RepositoryBeansConfigurations.class, ServiceBeansConfiguration.class})
+@Configuration
+@Import({DataInitializersBeansConfiguration.class, RepositoryBeansConfiguration.class, ServiceBeansConfiguration.class, CustomBeansPostProcessorConfiguration.class})
 public class MainAppConfiguration  {
 
 }

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:initialSequence.properties")
-public class RepositoryBeansConfigurations {
+public class RepositoryBeansConfiguration {
     @Bean
     public UserRepository userRepository()
     {   UserRepositoryFactory userRepositoryFactory = new UserRepositoryFactory();

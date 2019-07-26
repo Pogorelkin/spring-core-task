@@ -9,12 +9,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServiceBeansConfiguration {
     @Autowired
-    RepositoryBeansConfigurations repositoryBeansConfigurations;
+    RepositoryBeansConfiguration repositoryBeansConfiguration;
 
 
     @Bean
     public ItemService itemService() {
-        return new ItemServiceImpl(repositoryBeansConfigurations.itemMapRepository());
+        return new ItemServiceImpl(repositoryBeansConfiguration.itemMapRepository());
     }
 
     @Bean
@@ -24,12 +24,12 @@ public class ServiceBeansConfiguration {
 
     @Bean
     public ProductService productService() {
-        return new ProductServiceImpl(repositoryBeansConfigurations.productRepository());
+        return new ProductServiceImpl(repositoryBeansConfiguration.productRepository());
     }
 
     @Bean
     public ProposalService proposalService() {
-        return new ProposalServiceImpl(repositoryBeansConfigurations.proposalRepository());
+        return new ProposalServiceImpl(repositoryBeansConfiguration.proposalRepository());
     }
 
     @Bean
@@ -40,5 +40,10 @@ public class ServiceBeansConfiguration {
     @Bean
     public UserService userService() {
         return new UserServiceImpl();
+    }
+
+    @Bean
+    public RandomIntService randomIntService() {
+        return new RandomIntService();
     }
 }
