@@ -1,7 +1,5 @@
 package org.shop.api.impl;
 
-import java.util.List;
-
 import org.shop.api.ProductService;
 import org.shop.api.ProposalService;
 import org.shop.api.SellerService;
@@ -10,15 +8,20 @@ import org.shop.data.Proposal;
 import org.shop.data.Seller;
 import org.shop.data.State;
 import org.shop.repository.ProposalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public class ProposalServiceImpl implements ProposalService {
 
     private final ProposalRepository repository;
-    
+
+    @Autowired
     private SellerService sellerService;
-    
+
+    @Autowired
     private ProductService productService;
-    
+
     public ProposalServiceImpl(ProposalRepository repository) {
         super();
         this.repository = repository;
@@ -34,7 +37,7 @@ public class ProposalServiceImpl implements ProposalService {
         proposal.setProduct(productService.getProductById(productId));
         proposal.setSeller(sellerService.getSellerById(sellerId));
         proposal.setState(State.NOT_ACTIVE_PROPOSAL);
-        
+
         return repository.createProposal(proposal);
     }
 
@@ -45,7 +48,7 @@ public class ProposalServiceImpl implements ProposalService {
     public void deactivateProposal(Long proposalId) {
         Proposal proposal = repository.getProposal(proposalId);
         proposal.setState(State.NOT_ACTIVE_PROPOSAL);
-        
+
         repository.updateProposal(proposal);
     }
 
@@ -56,7 +59,7 @@ public class ProposalServiceImpl implements ProposalService {
     public void activateProposal(Long proposalId) {
         Proposal proposal = repository.getProposal(proposalId);
         proposal.setState(State.ACTIVE_PROPOSAL);
-        
+
         repository.updateProposal(proposal);
     }
 

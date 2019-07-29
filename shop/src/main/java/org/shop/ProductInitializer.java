@@ -1,7 +1,6 @@
 package org.shop;
 
 import org.shop.api.ProductService;
-
 import org.shop.common.Products;
 import org.shop.data.Product;
 

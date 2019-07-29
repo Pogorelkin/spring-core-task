@@ -1,22 +1,21 @@
 package org.shop.repository.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.shop.data.User;
 import org.shop.repository.UserRepository;
 import org.shop.repository.map.AbstractMapRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A factory for creating UserRepository objects.
- * 
+ *
  * @author Dzmitry_Naskou
- * 
  * @see UserRepository
  * @see User
  */
 public final class UserRepositoryFactory {
-    
+
     /**
      * Creates a new UserRepository instance.
      *
@@ -25,9 +24,8 @@ public final class UserRepositoryFactory {
     public UserRepository createUserRepository() {
         return new UserMapRepository();
     }
-    
+
     /**
-     * 
      * @author Dzmitry_Naskou
      */
     private class UserMapRepository extends AbstractMapRepository<User> implements UserRepository {

@@ -1,10 +1,10 @@
 package org.shop.repository.map;
 
-import java.util.List;
-
 import org.apache.commons.collections.Predicate;
 import org.shop.data.Item;
 import org.shop.repository.ItemRepository;
+
+import java.util.List;
 
 public class ItemMapRepository extends AbstractMapRepository<Item> implements ItemRepository {
 
@@ -48,7 +48,6 @@ public class ItemMapRepository extends AbstractMapRepository<Item> implements It
                 
                 return orderId.equals(item.getOrder().getId());
             }
-            
             return false;
         }
     }
