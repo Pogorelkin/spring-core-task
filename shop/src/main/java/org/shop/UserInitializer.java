@@ -2,12 +2,10 @@ package org.shop;
 
 import org.shop.api.UserService;
 import org.shop.data.User;
-import org.springframework.stereotype.Component;
 
 /**
  * The User Initializer util class.
  */
-@Component
 public class UserInitializer {
 
     /** The user service. */

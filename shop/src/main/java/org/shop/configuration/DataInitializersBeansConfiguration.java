@@ -1,8 +1,9 @@
 package org.shop.configuration;
 
 import org.shop.*;
+import org.shop.api.ProductService;
+import org.shop.api.UserService;
 import org.shop.common.Sellers;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,19 +12,14 @@ import java.util.Map;
 
 @Configuration
 public class DataInitializersBeansConfiguration {
-
-    @Autowired
-    ServiceBeansConfiguration serviceBeansConfiguration;
-
-
     @Bean
     public DataInitializer dataInitializer() {
         return new DataInitializer();
     }
 
     @Bean
-    public ProductInitializer productInitializer() {
-        return new ProductInitializer(serviceBeansConfiguration.productService());
+    public ProductInitializer productInitializer(ProductService productService) {
+        return new ProductInitializer(productService);
     }
 
     @Bean
@@ -39,15 +35,14 @@ public class DataInitializersBeansConfiguration {
         return sellers;
     }
 
-
     @Bean
     public SellerInitializer sellerInitializer() {
         return new SellerInitializer(sellerNames());
     }
 
     @Bean
-    public UserInitializer userInitializer() {
-        return new UserInitializer(serviceBeansConfiguration.userService());
+    public UserInitializer userInitializer(UserService userService) {
+        return new UserInitializer(userService);
     }
 
 

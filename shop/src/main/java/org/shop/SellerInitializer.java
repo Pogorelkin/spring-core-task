@@ -3,7 +3,6 @@ package org.shop;
 import org.shop.api.SellerService;
 import org.shop.data.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.Map;
 /**
  * The Seller Initializer util class.
  */
-@Component
 public class SellerInitializer {
 
     /** The seller service. */

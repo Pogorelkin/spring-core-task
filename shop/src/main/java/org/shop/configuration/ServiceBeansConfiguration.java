@@ -2,19 +2,18 @@ package org.shop.configuration;
 
 import org.shop.api.*;
 import org.shop.api.impl.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.shop.repository.ItemRepository;
+import org.shop.repository.ProductRepository;
+import org.shop.repository.ProposalRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ServiceBeansConfiguration {
-    @Autowired
-    RepositoryBeansConfiguration repositoryBeansConfiguration;
-
 
     @Bean
-    public ItemService itemService() {
-        return new ItemServiceImpl(repositoryBeansConfiguration.itemMapRepository());
+    public ItemService itemService(ItemRepository itemRepository) {
+        return new ItemServiceImpl(itemRepository);
     }
 
     @Bean
@@ -23,13 +22,13 @@ public class ServiceBeansConfiguration {
     }
 
     @Bean
-    public ProductService productService() {
-        return new ProductServiceImpl(repositoryBeansConfiguration.productRepository());
+    public ProductService productService(ProductRepository productRepository) {
+        return new ProductServiceImpl(productRepository);
     }
 
     @Bean
-    public ProposalService proposalService() {
-        return new ProposalServiceImpl(repositoryBeansConfiguration.proposalRepository());
+    public ProposalService proposalService(ProposalRepository proposalRepository) {
+        return new ProposalServiceImpl(proposalRepository);
     }
 
     @Bean
